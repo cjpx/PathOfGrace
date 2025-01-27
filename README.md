@@ -21,7 +21,7 @@ To run this project locally, ensure you have:
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/PathOfGrace.git
+   git clone https://github.com/cjpx/PathOfGrace.git
    ```
 2. Navigate to the project directory:
    ```bash
