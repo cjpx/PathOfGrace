@@ -1,0 +1,27 @@
+/* === Importing google fonts===*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+*{
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* === Header ===*/
+#header .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-bar .nav-bar-middle ul{
+    display: flex;
+    gap: 15px;
+    list-style-type: none;
+}
+.nav-bar-middle{
+    display: flex;
+    justify-content: space-between;
+}
+.nav-bar ul li{
+    display: inline;
+}
