@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    {% block content %}
+    <div class="lyrics-container">
+        <h1>{{ song.title }}</h1>
+        {% for section in song.sections.all %}
+            {% if section.section_type == 'chorus' %}
+                <p class="chorus-title">Kè:</p>
+            {% else %}
+                <p class="verse-title">Verse {{forloop.counter}}</p>
+            {% endif %}
+
+            <div class="verse">
+                {% for line in section.lines.all %}
+                    <p class="line">{{ line.content }}<br></p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <a href="{% url 'song_list' %}" style="display: inline-block; margin-top: 20px; 
+           padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none;
+           border-radius: 5px;">Back to Song List</a>
+
+    </div>
+    {% endblock%}
+</body>
+
+
+<style>
+    body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.lyrics-container {
+    width: 60%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.verse-title {
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.verse {
+    font-style: italic;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.line {
+    display: block;
+    margin-bottom: 0px;
+}
+
+.verse-container {
+    margin-bottom: 30px;
+}
+
+
+.chorus-title {
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.chorus{
+    font-style: italic;
+    margin: 5px 0;
+    text-align: center;
+}
+
+</style>
