@@ -3,6 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index, name="chant-index"),
+    path('', views.base, name="chant_base"),
     path('chant/', views.home, name="chant-home"),
+    path('song/', views.song_list, name="song_list"),
+    path('song/<int:song_id>/', views.song_detail, name="song_detail")
 ]
