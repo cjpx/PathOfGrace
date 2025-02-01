@@ -159,7 +159,7 @@
 }
 *{
     font-family: "Poppins", var(--font-sans);
-    font-weight: 400;
+    font-weight: var(--font-weight-normal);
     font-style: var(--font-style-normal);
     color: var(--color-black);
 }
@@ -169,10 +169,43 @@
     display: flex;
     justify-content: space-between;
 }
+.nav-links{
+    font-size: var(--font-size-2xl);
+    padding: 0px;
+    margin: 0px;
+}
 
+.dropdown{
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    font-size: var(--font-size-2xl);
+}
+ .dropdown .dropbtn{
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+}
+.dropbtn {
+    font-size: var(--font-size-2xl); /* Adjust as needed */
+    font-weight: var(--font-weight-normal); /* Makes the text bolder */
+    padding: 10px 15px; /* Adjust padding for better spacing */
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+.dropdown-content a{
+    justify-content: center;
+    display: block;
+}
 .navbar ul li{
     list-style: none;
     display: inline;
+    padding: 0 3px 0 2px;
+    margin: 0 3px 0 2px;
 }
 .navbar ul li a{
     text-decoration: none;
@@ -181,4 +214,16 @@
 .dropdown-content{
     display: none;
     position: absolute;
+}
+
+
+.nav-icons a{
+    display: inline;
+    justify-content: space-between;
+    padding: 0 3px 0 2px;
+    margin: 0 3px 0 2px;
+}
+/* Material Icons style*/
+.material-symbols-outlined.navbar-left{
+    font-size: var(--font-size-4xl);
 }
