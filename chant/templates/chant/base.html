@@ -4,64 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A multilingual platform dedicated to sharing the Bible and hymns from 'Chant D'Espérance' in English, French, and Haitian Creole. Our mission is to inspire faith, hope, and worship through sacred texts and spiritual songs.">
+    <meta name="description" content="A multilingual platform dedicated to sharing the Bible and hymns from 'Chant D'Espérance' in English, French, and Haitian Creole.">
     <meta name="keywords" content="Bon Nouvèl Ayiti, Bondye Ak Nou, Sèl Glwa, Sere Lavanjil">
-    <meta name="author", content="Carl">
-    <!-- === IMPORTING FONTS===-->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
-
-    <!-- Boxicons CSS -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- === CSS FILES === -->
-     <link rel="stylesheet" type="text/css" href="{% static 'chant/main.css' %}">
+    <meta name="author" content="Carl">
+    
+    <title>Refij Espirityèl</title>
     
     <!-- Google Icons-->
-     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
+    
+    <!-- Boxicons (for icons) -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Refij Espirityèl</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'chant/main.css' %}">
 </head>
 <body>
-    <header id="header" class="header">
-        <div class="navigation">
-            <nav class="nav-bar">
-                <div class="nav-bar-middle">
-                    <ul class="left-side-nav">
-                        <li><a href="#"><i class="material-symbols-outlined">home</i>Home</a></li>
-                        <li><a href="#"><i class="material-symbols-outlined">music_note</i>Chant</a></li>
-                        <li>
-                            <div class="resource-dropdown r-navbar">
-                                <button class="drp-btn btn-nav">Resources</button>
-                                <div class="dropdown-content">
-                                    <a href="#">Link I</a>
-                                    <a href="#">Link II</a>
-                                    <a href="#">Link III</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"><i class="material-symbols-outlined">import_contacts</i>Bible</a></li>
-                        <li><a href="#"></a>About</li>
-                        <li><a href="#"></a></li>
-                    </ul>
-                </div>
-                <ul class="right-side-nav">
-                    <li><a href="#"><i class="material-symbols-outlined">import_contacts</i></a></li>
-                    <li><a href="#"><i class="material-symbols-outlined">account_circle</i></a></li>
-                </ul>
-    
-            </nav>
-        </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">Refij Espirityèl</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#"><i class="material-symbols-outlined">home</i> Home</a></li>
+                <li><a href="#"><i class="material-symbols-outlined">music_note</i> Chant</a></li>
+                <li><a href="#"><i class="material-symbols-outlined"></i> Bible</a></li>
+                <li><a href="#">About</a></li>
+                <li class="dropdown">
+                    <button class="dropbtn">Resources <i class="bx bx-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="#">Link I</a>
+                        <a href="#">Link II</a>
+                        <a href="#">Link III</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#"><i class="material-symbols-outlined">search</i></a>
+                <a href="#"><i class="material-symbols-outlined">import_contacts</i></a>
+                <a href="#"><i class="material-symbols-outlined">account_circle</i></a>
+            </div>
+        </nav>
     </header>
-    
-    
+
+    <!-- Main Content -->
+    <main>
+        <section class="welcome">
+            <h1>Welcome to Refij Espirityèl</h1>
+            <p>Bringing you the Word of God and sacred hymns in multiple languages.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Refij Espirityèl. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
