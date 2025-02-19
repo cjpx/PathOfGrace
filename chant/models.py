@@ -3,20 +3,39 @@ from django.db import models
 # Create your models here.
 
 class Category(models.Model):
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(primary_key=True, max_length=100, unique=True, null=False)
 
     def __str__(self):
         return self.name
     
+#class Language(models.Model):
+#    LANGUAGE_CHOICES = [
+#        ('Creole', 'creole'),
+#        ('French', 'french'),
+#        ('English', 'english')
+#    ] 
+#    song = models.ForeignKey(Song, related_name='languages', on_delete=models.CASCADE)
+#    language_type = models.CharField(max_length=10, choices=LANGUAGE_CHOICES)
+class Language(models.Model):
+    LANGUAGE_CHOICES = [
+        ('Creole', 'creole'),
+        ('French', 'french'),
+        ('English', 'english')
+    ]
+    category = models.ForeignKey(Category, related_name='languages', on_delete=models.CASCADE)
+    language_type = models.CharField(max_length=10, choices=LANGUAGE_CHOICES)
 
 class Song(models.Model):
     id = models.AutoField(primary_key=True, null=False)
     title = models.CharField(max_length=255)
-    categories = models.ManyToManyField(Category, related_name="songs")
+    category = models.ForeignKey(Category, related_name="songcategory", on_delete=models.CASCADE)
+    category_number = models.IntegerField()
+    language = models.ForeignKey(Language, related_name="languages", on_delete=models.CASCADE)
     
     def __str__(self):
         return self.title
     
+
 class Section(models.Model):
     TYPE_CHOICES = [
         ('verse', 'Verse'),
@@ -38,11 +57,3 @@ class Line(models.Model):
         return self.content
 
 
-class Language(models.Model):
-    LANGUAGE_CHOICES = [
-        ('Creole', 'creole'),
-        ('French', 'french'),
-        ('English', 'english')
-    ] 
-    song = models.ForeignKey(Song, related_name='languages', on_delete=models.CASCADE)
-    language_type = models.CharField(max_length=10, choices=LANGUAGE_CHOICES)
