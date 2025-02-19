@@ -1,14 +1,18 @@
+{% extends 'chant/base.html' %}
 {% block content %}
     <h1>Song List</h1>
     <ul>
         {% for song in songs %}
             <li>
-                <a href="{% url 'song_detail' song.id %}" 
+                <a href="{% url 'song_detail' song.category_number %}" 
                    style="display: block; padding: 10px; background-color: #007bff; 
                           color: white; text-decoration: none; border-radius: 5px; margin: 5px 0;">
-                    {{ song.title }}
+                    {{song.category_number}} — {{ song.title }}
                 </a>
             </li>
         {% endfor %}
+        <a href="{% url 'chant-home' %}">
+            <button class="back-home-btn">Back</button>
+        </a>
     </ul>
 {% endblock %}
