@@ -22,6 +22,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'chant/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'chant/chant_home.css' %}">
 </head>
 <body>
 
@@ -32,8 +33,8 @@
                 <a href="#">Refij Espirityèl</a>
             </div>
             <ul class="nav-links">
-                <li><a href="#"><i class="material-symbols-outlined">home</i> Home</a></li>
-                <li><a href="#"><i class="material-symbols-outlined">music_note</i> Chant</a></li>
+                <li><a href="{% url 'r_base' %}"><i class="material-symbols-outlined">home</i> Home</a></li>
+                <li><a href="{% url 'chant-home' %}"><i class="material-symbols-outlined">music_note</i> Chant</a></li>
                 <li><a href="#"><i class="material-symbols-outlined"></i> Bible</a></li>
                 <li><a href="#">About</a></li>
                 <li class="dropdown">
@@ -55,16 +56,22 @@
 
     <!-- Main Content -->
     <main>
+        {% block content%}
         <section class="welcome">
             <h1>Welcome to Refij Espirityèl</h1>
             <p>Bringing you the Word of God and sacred hymns in multiple languages.</p>
         </section>
+        {% endblock content%}
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Refij Espirityèl. All Rights Reserved.</p>
+        <p>&copy; <span id="current-year"></span> Refij Espirityèl. All Rights Reserved.</p>
     </footer>
 
 </body>
 </html>
+<script>
+    const d = new Date();
+    document.getElementById("current-year").innerHTML = d.getUTCFullYear();
+</script>
