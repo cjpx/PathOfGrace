@@ -8,14 +8,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
-#class Language(models.Model):
-#    LANGUAGE_CHOICES = [
-#        ('Creole', 'creole'),
-#        ('French', 'french'),
-#        ('English', 'english')
-#    ] 
-#    song = models.ForeignKey(Song, related_name='languages', on_delete=models.CASCADE)
-#    language_type = models.CharField(max_length=10, choices=LANGUAGE_CHOICES)
 class Language(models.Model):
     LANGUAGE_CHOICES = [
         ('Creole', 'creole'),
