@@ -1,24 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-</head>
-
+{% extends 'chant/base.html' %}
 <body>
     {% block content %}
     <div class="lyrics-container">
         <h1>{{ song.title }}</h1>
         {% for section in song.sections.all %}
             {% if section.section_type == 'chorus' %}
-                <p class="chorus-title">Kè:</p>
+                <h3 class="chorus-title">Kè:</h3>
             {% else %}
-                <p class="verse-title">Verse {{forloop.counter}}</p>
+                <h3 class="verse-title">Verse </h3>
             {% endif %}
 
             <div class="verse">
@@ -27,9 +16,7 @@
                 {% endfor %}
             </div>
         {% endfor %}
-        <a href="{% url 'song_list' %}" style="display: inline-block; margin-top: 20px; 
-           padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none;
-           border-radius: 5px;">Back to Song List</a>
+        
 
     </div>
     {% endblock%}
@@ -37,14 +24,9 @@
 
 
 <style>
-    body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
+   
 
+/* Ensure the lyrics container is centered */
 .lyrics-container {
     width: 60%;
     margin: 20px auto;
@@ -52,22 +34,29 @@
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center everything inside the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
 }
 
+/* Ensuring the headings are centered */
 h1 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 20px;
 }
 
-.verse-title {
-    font-weight: bold;
+/* Ensure verses and lines are centered */
+.verse-title,
+.chorus-title {
+    font-weight: var(--font-weight-medium);
     margin-top: 5px;
     font-size: 1.2rem;
     text-align: center;
 }
 
-.verse {
+.verse, .chorus {
     font-style: italic;
     margin: 5px 0;
     text-align: center;
@@ -76,23 +65,12 @@ h1 {
 .line {
     display: block;
     margin-bottom: 0px;
+    text-align: center; /* Center the lines */
 }
 
 .verse-container {
     margin-bottom: 30px;
 }
 
-
-.chorus-title {
-    font-weight: bold;
-    margin-top: 5px;
-    font-size: 1.2rem;
-    text-align: center;
-}
-.chorus{
-    font-style: italic;
-    margin: 5px 0;
-    text-align: center;
-}
 
 </style>
