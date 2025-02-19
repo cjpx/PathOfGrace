@@ -1,0 +1,40 @@
+/* Card container styling */
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line if there are too many */
+    gap: 20px; /* Adds spacing between cards */
+    justify-content: center; /* Centers the cards horizontally */
+    margin: 20px; /* Margin around the card container */
+}
+
+.card-container a{
+    text-decoration: none;
+    color: inherit;
+}
+/* Card styling */
+.card {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px; /* Set the width of each card */
+    height: 150px;
+    text-align: center;
+    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow around the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    display: flex;
+    justify-content: center;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: translateY(-5px); /* Moves the card slightly upward */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increases the shadow on hover */
+}
+
+/* Card heading styling */
+.card h1 {
+    font-size: 18px;
+    font-weight: var(--font-weight-normal);
+    color: var(--color-black);
+}
