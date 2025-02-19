@@ -227,3 +227,17 @@
 .material-symbols-outlined.navbar-left{
     font-size: var(--font-size-4xl);
 }
+
+
+
+
+
+
+
+
+footer{
+    align-self: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
