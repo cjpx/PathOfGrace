@@ -26,3 +26,7 @@ def song_detail(request, category_number):
 def home(request):
     return HttpResponse("<h1>Hello!!!</h1>")
 
+def chant(request):
+    """Returns list of Category"""
+    categories = Category.objects.all()
+    return render(request, 'chant/chant_home.html', {'categories': categories})
