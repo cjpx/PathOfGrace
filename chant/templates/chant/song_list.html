@@ -1,10 +1,25 @@
 {% extends 'chant/base.html' %}
 {% block content %}
-    <h1>Song List</h1>
-    <ul>
+    <section class="songs-lists-section">
+        <h1>Song List</h1>
+    <ul class="songs-list">
+        <form id="languageForm">
+            <label>
+                <input type="radio" name="choice" value="creole" {% if selected_language == "creole" %}checked{% endif %}> Creole
+            </label>
+            
+            <label>
+                <input type="radio" name="choice" value="french" {% if selected_language == "french" %}checked{% endif %}> French
+            </label>
+            
+            <label>
+                <input type="radio" name="choice" value="english" {% if selected_language == "english" %}checked{% endif %}> English
+            </label>
+        </form>
+
         {% for song in songs %}
             <li>
-                <a href="{% url 'song_detail' song.category_number %}" 
+                <a href="{% url 'song_detail' song.category.slug song.category_number %}" 
                    style="display: block; padding: 10px; background-color: #007bff; 
                           color: white; text-decoration: none; border-radius: 5px; margin: 5px 0;">
                     {{song.category_number}} — {{ song.title }}
@@ -15,4 +30,29 @@
             <button class="back-home-btn">Back</button>
         </a>
     </ul>
+    </section>
+
+    <style>
+        .songs-lists-section{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .songs-list{
+            list-style-type: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .songs-list li{
+            width: 100%;
+        }
+    </style>
+<script>
+    document.querySelectorAll('input[name="choice"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            window.location.href = window.location.pathname + '?choice=' + encodeURIComponent(this.value);
+        });
+    });
+</script>
 {% endblock %}
