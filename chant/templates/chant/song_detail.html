@@ -1,53 +1,53 @@
 {% extends 'chant/base.html' %}
-<body>
-    {% block content %}
-    <div class="lyrics-container">
-        <h1>{{ song.title }}</h1>
-        {% for section in song.sections.all %}
-            {% if section.section_type == 'chorus' %}
-                <h3 class="chorus-title">Kè:</h3>
-            {% else %}
-                <h3 class="verse-title">Verse </h3>
-            {% endif %}
+{% block content %}
+<div class="lyrics-container">
+    <h1 class="song-title">{{ song.title }}</h1>
+    {% for section in song.sections.all %}
+        {% if section.section_type == 'chorus' %}
+            <h3 class="chorus-title">Kè:</h3>
+        {% else %}
+            <h3 class="verse-title">Verse </h3>
+        {% endif %}
 
-            <div class="verse">
-                {% for line in section.lines.all %}
-                    <p class="line">{{ line.content }}<br></p>
-                {% endfor %}
-            </div>
-        {% endfor %}
-        
+        <div class="verse">
+            {% for line in section.lines.all %}
+                <p class="line">{{ line.content }}<br></p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    
 
-    </div>
+</div>
     {% endblock%}
-</body>
 
 
 <style>
-   
-
-/* Ensure the lyrics container is centered */
-.lyrics-container {
-    width: 60%;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center everything inside the container */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center horizontally */
+    /* Apply a full-page centering style if needed */
+body, html {
+    height: 100%;
+    margin: 0;
 }
 
-/* Ensuring the headings are centered */
-h1 {
-    text-align: center;
+.lyrics-container {
+    width: 60%;
+    max-width: 900px; /* Limit the max width if necessary */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.song-title {
     font-size: 2rem;
     margin-bottom: 20px;
 }
 
-/* Ensure verses and lines are centered */
+/* Make sure verse and chorus sections are centered */
 .verse-title,
 .chorus-title {
     font-weight: var(--font-weight-medium);
@@ -65,11 +65,7 @@ h1 {
 .line {
     display: block;
     margin-bottom: 0px;
-    text-align: center; /* Center the lines */
-}
-
-.verse-container {
-    margin-bottom: 30px;
+    text-align: center;
 }
 
 
