@@ -1,25 +1,25 @@
 {% extends 'chant/base.html' %}
 {% block content %}
     <section class="songs-lists-section">
-        <h1>Song List</h1>
+        <h1>{{ category.name }} {{ selected_language }}</h1>
     <ul class="songs-list">
         <form id="languageForm">
             <label>
-                <input type="radio" name="choice" value="creole" {% if selected_language == "creole" %}checked{% endif %}> Creole
+                <input type="radio" name="choice" value="Créole" {% if selected_language == "Créole" %}checked{% endif %}> Créole
             </label>
             
             <label>
-                <input type="radio" name="choice" value="french" {% if selected_language == "french" %}checked{% endif %}> French
+                <input type="radio" name="choice" value="Français" {% if selected_language == "Français" %}checked{% endif %}> Français
             </label>
             
             <label>
-                <input type="radio" name="choice" value="english" {% if selected_language == "english" %}checked{% endif %}> English
+                <input type="radio" name="choice" value="English" {% if selected_language == "English" %}checked{% endif %}> English
             </label>
         </form>
 
         {% for song in songs %}
             <li>
-                <a href="{% url 'song_detail' song.category.slug song.category_number %}" 
+                <a href="{% url 'song_detail' song.category.slug song.slug %}" 
                    style="display: block; padding: 10px; background-color: #007bff; 
                           color: white; text-decoration: none; border-radius: 5px; margin: 5px 0;">
                     {{song.category_number}} — {{ song.title }}
