@@ -164,6 +164,22 @@
     color: var(--color-black);
 }
 
+header{
+    margin: 30px;
+}
+
+.material-symbols-outlined{
+    font-size: var(--font-size-4xl);
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 /* === Header ===*/
 .navbar{
     display: flex;
