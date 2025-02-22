@@ -18,8 +18,8 @@ class Category(models.Model):
     
 class Language(models.Model):
     LANGUAGE_CHOICES = [
-        ('Creole', 'creole'),
-        ('French', 'french'),
+        ('Créole', 'créole'),
+        ("Français", 'français'),
         ('English', 'english')
     ]
     category = models.ForeignKey(Category, related_name='languages', on_delete=models.CASCADE)
@@ -32,7 +32,7 @@ class Song(models.Model):
     category_number = models.IntegerField()
     language = models.ForeignKey(Language, related_name="languages", on_delete=models.CASCADE)
 
-    slug = models.SlugField(unique=True, blank=True)
+    slug = models.SlugField(unique=False, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
