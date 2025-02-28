@@ -1,21 +1,30 @@
 from django.db import models
 from django.utils.text import slugify
+from PIL import Image
 
 # Create your models here.
 
 class Category(models.Model):
     name = models.CharField(primary_key=True, max_length=100, unique=True, null=False)
     slug = models.SlugField(unique=True, blank=True)
+    image = models.ImageField(blank=True, null=True, upload_to="images/uploads/categories")
 
     def save(self, *args, **kwargs):
+        # Set slug only if it’s empty
         if not self.slug:
             self.slug = slugify(self.name)
-            super().save(*args, **kwargs)
-    
+        
+        super().save(*args, **kwargs)  # Save before accessing file paths
+
+        # Process image only if an image is uploaded
+        if self.image:
+            img = Image.open(self.image.path)
+            img.save(self.image.path)
 
     def __str__(self):
         return self.name
     
+
 class Language(models.Model):
     LANGUAGE_CHOICES = [
         ('Créole', 'créole'),
