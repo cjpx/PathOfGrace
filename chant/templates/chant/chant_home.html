@@ -5,7 +5,12 @@
         {% for category in categories %}
             <div class="col-3"> <!-- 4 columns per row -->
                 <a href="{% url 'song_list' category_slug=category.slug %}">
-                    <div class="card">
+                {% if category.image %}
+                    <div class="card" style="background-image: url('{{ category.image.url }}');
+                    background-size: cover; background-position: center; background-repeat: no-repeat;">
+                {% else %}
+                    <div class="card"> 
+                {% endif %}
                         <h1>{{ category }}</h1>
                     </div>
                 </a>
@@ -17,5 +22,13 @@
     </div>
 </div>
 
+<style>
+    .card {
+        background-image: url('{{ category.image_category.url }}');
+        background-size: cover;  /* Ensures the image covers the card */
+        background-position: center;  /* Centers the image */
+        background-repeat: no-repeat;  /* Prevents tiling */
+    }
+</style>
 
 {% endblock content %}
