@@ -1,0 +1,55 @@
+{% extends "chant/base.html" %}
+{% block content %}
+
+{% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="profile-section">
+
+        <div class="profile-header">
+
+            {% if user.is_authenticated and user == profile.user %}
+                <div class="user-profile">
+                    <form class="profile-form" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="profile-details">
+                            <button class="update-picture" id="update-picture">
+                                <img class="profile-avatar" src="{{ profile.image.url }}" alt="Profile Picture"><i class='bx bxs-camera'></i>
+                            </button>
+                            <h2 class="profile-username">{{ profile.user.username }}</h2>
+                            <p class="profile-email">{{ profile.user.email }}</p>
+                        </div>
+                        <fieldset class="profile-fieldset">
+                            <legend class="profile-legend">Profile Info</legend>
+                            <div class="form-group">
+                                {{ u_form.username.label_tag }}
+                                {{ u_form.username }}
+                            </div>
+                            <div class="form-group">
+                                {{ u_form.email.label_tag }}
+                                {{ u_form.email }}
+                            </div>
+                            <div class="form-group">
+                                {{ p_form.image.label_tag }}
+                                {{ p_form.image }}
+                            </div>
+                            <button type="submit" class="btn-update">Update</button>
+                        </fieldset>
+                    </form>
+                </div>
+            {% else %}
+                <div class="profile-details">
+                    <h2 class="profile-username">{{ profile.user.username }}</h2>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock content %}
