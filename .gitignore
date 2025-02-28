@@ -15,6 +15,9 @@ venv/
 *.py[cod]
 db.sqlite3
 
+# migrations
+*migrations/
+
 # VS Code
 .vscode/
 
