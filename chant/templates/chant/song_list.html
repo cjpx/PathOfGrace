@@ -9,7 +9,7 @@
             </label>
             
             <label>
-                <input type="radio" name="choice" value="Français" {% if selected_language == "Français" %}checked{% endif %}> Français
+                <input type="radio" name="choice" value="Français" {% if selected_language == "Français" %}checked{% endif %}><span class="material-symbols-outlined" style="align-items: center; justify-content: center;">language</span>Français
             </label>
             
             <label>
@@ -29,6 +29,9 @@
         <a href="{% url 'chant-home' %}">
             <button class="back-home-btn">Back</button>
         </a>
+        <a href="{% url 'update-category' category.slug %}">
+            <button class="btn btn-update">Update</button>
+        </a>
     </ul>
     </section>
 
@@ -47,6 +50,27 @@
         .songs-list li{
             width: 100%;
         }
+
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #333; /* Custom border */
+            border-radius: 50%;
+            outline: none;
+            display: none;
+        }
+        label {
+            margin: 0 25px 0 0;
+            
+        }
+
+        label:hover{
+            cursor: pointer;
+        }
+
     </style>
 <script>
     document.querySelectorAll('input[name="choice"]').forEach(radio => {
