@@ -1,12 +1,14 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 from .models import Song, Section, Line, Category, Language
+from .forms import CategoryForm
 
 
 
 #base view function
 def base(request):
-    return render(request, 'chant/base.html')
+    return render(request, 'chant/base.html', {'user': User})
 
 
 def song_list(request, category_slug):
@@ -33,3 +35,13 @@ def chant(request):
     """Returns list of Category"""
     categories = Category.objects.all()
     return render(request, 'chant/chant_home.html', {'categories': categories})
+
+def update_category(request, category_slug):
+    category = Category.objects.get(slug = category_slug)
+    form  = CategoryForm(request.POST or None, instance=category)
+    if form.is_valid():
+        form.save()
+        return redirect('chant-home')
+    
+    
+    return render(request, 'chant/cat_form.html', {'category': category, 'form': form})
