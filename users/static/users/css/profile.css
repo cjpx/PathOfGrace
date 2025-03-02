@@ -1,0 +1,99 @@
+.profile-header{
+    align-items: center;
+    justify-content: center;
+
+}
+.profile-section{
+    width: 40%;
+    height: 70%;
+    border-radius: 8px;
+    background-color: #F8F8F8;
+    box-shadow: 4px 4px 2px rgba(red, green, blue, 0.3);
+    align-items: center;
+    justify-content: center;
+}
+
+  
+  .update-picture{
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+  .profile-details{
+    display: flex;
+    align-items: center;
+    background: none;
+    background-color: transparent;
+    justify-content: center;
+}
+
+
+.profile-image-container {
+    position: relative;
+    display: inline-block;
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.camera-icon {
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    bottom: 0px;
+    right: 0px;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 8px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    transition: 0.3s ease-in-out;
+}
+
+.profile-image-container:hover .camera-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-image-container:hover .camera-icon .bxs-camera{
+    width: 20px;
+    height: 20px;
+    color: inherit;
+}
+
+.camera-icon i {
+    pointer-events: none; /* Prevents click event from going to the icon instead of the label */
+}
+
+/* Hide the default file input */
+#id_image {
+    display: none;
+}
+
+.user-info{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+}
+
+.user-username{
+    margin: 0px 10px 0 0;
+}
+p.joined-date{
+    align-items: center;
+    justify-content: center;
+}
