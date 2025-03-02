@@ -29,3 +29,7 @@ class ProfileUpdateForm(forms.ModelForm):
         widgets = {
             'image': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['image'].widget.template_name = 'widgets/custom_clearable_file_input.html'
