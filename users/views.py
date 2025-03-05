@@ -21,7 +21,6 @@ def register(request):
     return render(request, "users/register.html", {'form': form})
 
 
-@login_required
 def profile(request, username):
     user = get_object_or_404(User, username=username)  # Fetch user by username
     profile = get_object_or_404(Profile, user=user)  # Get user's profile
