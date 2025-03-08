@@ -23,6 +23,11 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'chant/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'chant/chant_home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/register.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/js/profile_preview.js' %}">
+
 </head>
 <body>
 
@@ -30,7 +35,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="{% url 'r_base' %}">Refij Espirityèl</a>
+                <a href="{% url 'r_base' %}"><img src="{% static 'chant/images/logo.svg' %}" alt="Logo" srcset="" style="width: 70px; height: 70px;"></a>
             </div>
             <ul class="nav-links">
                 <li><a href="{% url 'r_base' %}">Home</a></li>
@@ -49,7 +54,19 @@
             <div class="nav-icons">
                 <a href="#"><i class="material-symbols-outlined" translate="no">search</i></a>
                 <a href="#"><i class="material-symbols-outlined"    translate="no">import_contacts</i></a>
-                <a href="#"><i class="material-symbols-outlined"    translate="no">account_circle</i></a>
+                {% if request.user.is_authenticated %}
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" style="padding: 0; margin: 0; border: none;">
+                            <i class="material-symbols-outlined" translate="no">logout</i>
+                        </button>
+                    </form >
+                    <p>{{ user.username }}</p>
+                {% else %}
+                    <a href="{% url 'login' %}"><i class="material-symbols-outlined" translate="no">login</i></a>
+                {% endif %}
+
+
             </div>
         </nav>
     </header>
