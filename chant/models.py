@@ -8,6 +8,7 @@ class Category(models.Model):
     name = models.CharField(primary_key=True, max_length=100, unique=True, null=False)
     slug = models.SlugField(unique=True, blank=True)
     image = models.ImageField(blank=True, null=True, upload_to="images/uploads/categories")
+    color = models.CharField(max_length=7, null=True)
 
     def save(self, *args, **kwargs):
         # Set slug only if it’s empty
@@ -24,7 +25,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
-
 class Language(models.Model):
     LANGUAGE_CHOICES = [
         ('Créole', 'créole'),

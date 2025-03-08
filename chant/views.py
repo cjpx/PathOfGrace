@@ -3,12 +3,14 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from .models import Song, Section, Line, Category, Language
 from .forms import CategoryForm
+from users.models import Profile
 
 
 
 #base view function
 def base(request):
-    return render(request, 'chant/base.html', {'user': User})
+    user = User
+    return render(request, 'chant/base.html', {'user': user})
 
 
 def song_list(request, category_slug):
@@ -28,12 +30,11 @@ def song_detail(request, category_slug, slug):
 
     return render(request, 'chant/song_detail.html', {'song': song, 'verse_counter': verse_counter})
 
-def home(request):
-    return HttpResponse("<h1>Hello!!!</h1>")
 
 def chant(request):
     """Returns list of Category"""
     categories = Category.objects.all()
+    #context = {'categories': categories}
     return render(request, 'chant/chant_home.html', {'categories': categories})
 
 def update_category(request, category_slug):
