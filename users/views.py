@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import User, Profile
+from django.contrib.auth import logout
 from django.http import HttpResponse
 # Create your views here.
 
@@ -20,7 +21,7 @@ def register(request):
 
     return render(request, "users/register.html", {'form': form})
 
-
+@login_required
 def profile(request, username):
     user = get_object_or_404(User, username=username)  # Fetch user by username
     profile = get_object_or_404(Profile, user=user)  # Get user's profile
@@ -46,3 +47,10 @@ def profile(request, username):
     }
 
     return render(request, "users/profile.html", context)
+
+def logout(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('login')
+    
+    return render(request, 'users/logout.html')
