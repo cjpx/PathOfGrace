@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
 :root{
     --color-white: #ffffff;
+    --color-gosth-white: #F8F8FF;
     --color-black: #1b1b1b;
     --color-gray: var(--color-neutral-60);
     --color-brand: #00b3e5;
@@ -156,19 +157,26 @@
     --font-weight-semibold: 600;
 
     --font-style-normal: normal;
+
+
+    --form-error: #721c24;
+    --form-error-border: #f5c6cb;
+    --form-error-gb: #f8d7da;
+
 }
 *{
     font-family: "Poppins", var(--font-sans);
     font-weight: var(--font-weight-normal);
     font-style: var(--font-style-normal);
     color: var(--color-black);
+    background-color: var(--color-gosth-white);
 }
 
 header{
     margin: 30px;
 }
 
-.material-symbols-outlined{
+.nav-icons .material-symbols-outlined{
     font-size: var(--font-size-4xl);
 }
 
@@ -184,11 +192,21 @@ main {
 .navbar{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .nav-links{
     font-size: var(--font-size-2xl);
     padding: 0px;
     margin: 0px;
+}
+.nav-icons{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.nav-icons form button:hover{
+    cursor: pointer;
+    content: 'Logout';
 }
 
 .dropdown{
