@@ -7,11 +7,11 @@
                 <a href="{% url 'song_list' category_slug=category.slug %}">
                 {% if category.image %}
                     <div class="card" style="background-image: url('{{ category.image.url }}');
-                    background-size: cover; background-position: center; background-repeat: no-repeat;">
+                    background-size: cover; background-position: center; background-repeat: no-repeat; background-color: {{ category.color }};">
                 {% else %}
                     <div class="card"> 
                 {% endif %}
-                        <h1>{{ category }}</h1>
+                        <h1 lang="fr" translate="no">{{ category }}</h1>
                     </div>
                 </a>
             </div>
