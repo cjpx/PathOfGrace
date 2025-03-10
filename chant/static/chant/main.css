@@ -201,12 +201,13 @@ main {
 }
 .nav-icons{
     display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     padding: 0;
 }
 .nav-icons form button:hover{
     cursor: pointer;
-    content: 'Logout';
 }
 
 .dropdown{
@@ -216,7 +217,7 @@ main {
     margin: 0;
     font-size: var(--font-size-2xl);
 }
- .dropdown .dropbtn{
+.dropdown .dropbtn{
     border: none;
     background: none;
     padding: 0;
