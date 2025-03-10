@@ -9,8 +9,8 @@ from users.models import Profile
 
 #base view function
 def base(request):
-    user = User
-    return render(request, 'chant/base.html', {'user': user})
+    #user = User
+    return render(request, 'chant/base.html')
 
 
 def song_list(request, category_slug):
